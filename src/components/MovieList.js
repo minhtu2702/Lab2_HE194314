@@ -1,0 +1,24 @@
+import MovieItem from "./MovieItem";
+
+function MovieList({ movies, favorites, toggleFavorite, viewDetail }) {
+  if (movies.length === 0) {
+    return (
+      <p style={{ textAlign: "center", padding: "30px" }}>No movies found.</p>
+    );
+  }
+
+  return (
+    <section>
+      {movies.map((movie) => (
+        <MovieItem
+          key={movie.id}
+          movie={movie}
+          toggleFavorite={toggleFavorite}
+          viewDetail={viewDetail}
+        />
+      ))}
+    </section>
+  );
+}
+
+export default MovieList;
